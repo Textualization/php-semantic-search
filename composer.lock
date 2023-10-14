@@ -1,0 +1,268 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "21fa4dbbb84a80ad59183b06e4ed755e",
+    "packages": [
+        {
+            "name": "ankane/onnxruntime",
+            "version": "v0.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ankane/onnxruntime-php.git",
+                "reference": "dfe1da7aa8cf8215992df5ea327a79dd48d11a56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ankane/onnxruntime-php/zipball/dfe1da7aa8cf8215992df5ea327a79dd48d11a56",
+                "reference": "dfe1da7aa8cf8215992df5ea327a79dd48d11a56",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ffi": ">= 8.0",
+                "php": ">= 8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "OnnxRuntime\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Kane",
+                    "email": "andrew@ankane.org"
+                }
+            ],
+            "description": "Run ONNX models in PHP",
+            "support": {
+                "issues": "https://github.com/ankane/onnxruntime-php/issues",
+                "source": "https://github.com/ankane/onnxruntime-php"
+            },
+            "time": "2023-05-25T02:23:52+00:00"
+        },
+        {
+            "name": "gioni06/gpt3-tokenizer",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Gioni06/GPT3Tokenizer.git",
+                "reference": "86f824f0e852e6a26887dac367e03bdeed07ef42"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Gioni06/GPT3Tokenizer/zipball/86f824f0e852e6a26887dac367e03bdeed07ef42",
+                "reference": "86f824f0e852e6a26887dac367e03bdeed07ef42",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "^8.0.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Gioni06\\Gpt3Tokenizer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jonas Duri",
+                    "email": "jonas.duri@gmail.com"
+                }
+            ],
+            "description": "PHP package for Byte Pair Encoding (BPE) used by GPT-3.",
+            "homepage": "https://github.com/Gioni06/GPT3Tokenizer",
+            "keywords": [
+                "GPT-3",
+                "decode",
+                "encode",
+                "gpt-2",
+                "openai",
+                "tokenizer"
+            ],
+            "support": {
+                "issues": "https://github.com/Gioni06/GPT3Tokenizer/issues",
+                "source": "https://github.com/Gioni06/GPT3Tokenizer"
+            },
+            "time": "2023-04-16T12:49:18+00:00"
+        },
+        {
+            "name": "orhanerday/open-ai",
+            "version": "4.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orhanerday/open-ai.git",
+                "reference": "896665e293689d68de4b1e9813a2e0b00a06f5ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orhanerday/open-ai/zipball/896665e293689d68de4b1e9813a2e0b00a06f5ef",
+                "reference": "896665e293689d68de4b1e9813a2e0b00a06f5ef",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "pestphp/pest": "^1.20",
+                "spatie/ray": "^1.28"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Orhanerday\\OpenAi\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Orhan Erday",
+                    "email": "orhanerday@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "OpenAI GPT-3 Api Client in PHP",
+            "homepage": "https://github.com/orhanerday/open-ai",
+            "keywords": [
+                "open-ai",
+                "orhanerday"
+            ],
+            "support": {
+                "issues": "https://github.com/orhanerday/open-ai/issues",
+                "source": "https://github.com/orhanerday/open-ai/tree/4.8"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/orhanerday",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-06-11T09:25:47+00:00"
+        },
+        {
+            "name": "textualization/ropherta",
+            "version": "v0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Textualization/Ropherta.git",
+                "reference": "ff22ae05449190824213d5e7eae36dc77260e67b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Textualization/Ropherta/zipball/ff22ae05449190824213d5e7eae36dc77260e67b",
+                "reference": "ff22ae05449190824213d5e7eae36dc77260e67b",
+                "shasum": ""
+            },
+            "require": {
+                "ankane/onnxruntime": "v0.1.5",
+                "textualization/ropherta-tokenizer": "v0.0.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Textualization\\Ropherta\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pablo Duboue",
+                    "email": "pablo.duboue@gmail.com"
+                }
+            ],
+            "description": "Compute RoBERTa embeddings using ONNX framework.",
+            "support": {
+                "issues": "https://github.com/textualization/ropherta/issues",
+                "source": "https://github.com/textualization/ropherta"
+            },
+            "funding": [
+                {
+                    "url": "https://ko-fi.com/textualization",
+                    "type": "ko-fi"
+                }
+            ],
+            "time": "2023-10-10T08:59:14+00:00"
+        },
+        {
+            "name": "textualization/ropherta-tokenizer",
+            "version": "v0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Textualization/RophertaTokenizer.git",
+                "reference": "06eb6254ec0276e90fc27a2220045660d05c9e16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Textualization/RophertaTokenizer/zipball/06eb6254ec0276e90fc27a2220045660d05c9e16",
+                "reference": "06eb6254ec0276e90fc27a2220045660d05c9e16",
+                "shasum": ""
+            },
+            "require": {
+                "gioni06/gpt3-tokenizer": "v1.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Textualization\\Ropherta\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Pablo Duboue",
+                    "email": "pablo.duboue@gmail.com"
+                }
+            ],
+            "description": "GPT3Tokenizer (BPE) with Roberta-base vocabulary.",
+            "support": {
+                "issues": "https://github.com/Textualization/RophertaTokenizer/issues",
+                "source": "https://github.com/Textualization/RophertaTokenizer/tree/v0.0.2"
+            },
+            "time": "2023-08-08T13:36:36+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}

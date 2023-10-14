@@ -1,0 +1,34 @@
+{
+    "name": "textualization/semantic-search",
+    "description": "Semantic search using Ropherta embeddings and SQLite3 Vector extension.",
+    "type": "library",
+    "require": {
+        "textualization/ropherta": "^0.0.2",
+        "orhanerday/open-ai": "^4.8"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Textualization\\SemanticSearch\\": "src/"
+        }
+    },
+    "scripts": {
+        "index": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php scripts/index.php"
+        ],
+        "query": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php scripts/query.php"
+        ],
+        "fetch": [
+            "@php scripts/fetch.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Pablo Duboue",
+            "email": "pablo.duboue@gmail.com"
+        }
+    ]
+}
