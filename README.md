@@ -316,4 +316,4 @@ The vector indexing takes about a day and consumes significant amount of RAM at 
 
 We thank our sponsor:
 
-<a href="https://evoludata.com/"><img src="https://evoludata.com/display208"></
+<a href="https://evoludata.com/"><img src="https://evoludata.com/display208"></a>
