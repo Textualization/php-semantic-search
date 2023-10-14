@@ -198,9 +198,9 @@ Search query: how OR to OR stop OR compos OR give OR a OR time OR out OR on OR s
 Using this functionality needs an OpenAI API key. It can be passed through a file, an environment variable or directly in the constructor. Note that calling OpenAI is _very slow_. In this example the ChatGPT text throws the vector search into some directions that are not necessarily ideal. A shorter text might had been better.
 
 ```bash
-$ composer run-script query '{"class": "\\Textualization\\SemanticSearch\\VectorHydeIndex", "completion":{"open_ai_key":"/home/pablo/work/evoludata/openai_sstc_textualization.key"}}' "How to stop composer giving a time-out on a script execution" 
+$ composer run-script query '{"class": "\\Textualization\\SemanticSearch\\VectorHydeIndex", "completion":{"open_ai_key":"/path/to/key"}}' "How to stop composer giving a time-out on a script execution" 
 > Composer\Config::disableProcessTimeout
-> @php scripts/query.php '{"class": "\\Textualization\\SemanticSearch\\VectorHydeIndex", "completion":{"open_ai_key":"/home/pablo/work/evoludata/openai_sstc_textualization.key"}}' 'How to stop composer giving a time-out on a script execution'
+> @php scripts/query.php '{"class": "\\Textualization\\SemanticSearch\\VectorHydeIndex", "completion":{"open_ai_key":"/path/to/key"}}' 'How to stop composer giving a time-out on a script execution'
 Hdydrated query: There are several ways to prevent Composer from timing out during script execution:
 
 1. Increase the timeout limit: By default, Composer has a timeout limit of 300 seconds (5 minutes). You can increase this limit by modifying the `max_execution_time` directive in your PHP configuration file (php.ini). Set it to a higher value, such as 600 (10 minutes) or more, depending on your script's requirements.
