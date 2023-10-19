@@ -8,7 +8,7 @@ class Ingester {
 
     protected static $END_CHARS = [ '.', ':', '?', '!', ';' ];
 
-    public static function ingest($indexdesc, $ingesterdesc, $jsonl)
+    public static function ingest(array|string|Index|null $indexdesc, array|string|null $ingesterdesc, string $jsonl) : void
     {
         $index    = IndexFactory::make($indexdesc);
         $ingester = new Ingester($index, $ingesterdesc);
@@ -22,7 +22,12 @@ class Ingester {
         $max_size = $index->document_size();
         $count = 0;
         while (($line = fgets($handle)) !== false) {
-            $ingester->_add( json_decode($line, true), $tokenizer, $max_size );
+            $row = json_decode($line, true);
+            if ($row === null) {
+                echo "Cannot parse JSON at line $count: '$line'\n";
+            }else{
+                $ingester->_add( $row, $tokenizer, $max_size );
+            }
             $count++;
             if($count % 1000 == 0){
                 echo "$count documents indexed...\n";
@@ -96,6 +101,31 @@ class Ingester {
                 }
             }
             $prev_offset = $match[1] + strlen($match[0]);
+        }
+        $end = strlen($text);
+        if($prev_offset != $end) {
+            $split = substr($text, $prev_offset);
+            $len = strlen($split);
+            if($current) {
+                $extended = substr($text, $current_start);
+                $elen = $tokenizer ? $tokenizer->count($extended) : strlen($extended);
+                if($elen >= $max_size){
+                    $result[] = [ $current, $current_len, $current_start, $current_end ];
+                    $current = $split;
+                    $current_len = $len;
+                    $current_start = $prev_offset;
+                    $current_end = $end;
+                }else{
+                    $current = $extended;
+                    $current_len = $elen;
+                    $current_end = $end;
+                }
+            }else{
+                $current = $split;
+                $current_len = $len;
+                $current_start = $prev_offset;
+                $current_end = $end;
+            }
         }
         if($current) {
             $result[] = [ $current, $current_len, $current_start, $current_end ];

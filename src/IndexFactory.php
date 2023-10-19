@@ -6,8 +6,11 @@ include_once 'util.php';
 
 class IndexFactory {
     
-    public static function make(array|string|null $desc = null) : Index
+    public static function make(array|string|Index|null $desc = null) : Index
     {
+        if($desc instanceof Index)
+            return $desc;
+        
         $desc = get_json($desc);
         if(is_null($desc)){
             $desc=[];

@@ -3,13 +3,21 @@
     "description": "Semantic search using Ropherta embeddings and SQLite3 Vector extension.",
     "type": "library",
     "require": {
-        "textualization/ropherta": "^0.0.2",
+        "textualization/ropherta": "^0.0.4",
         "orhanerday/open-ai": "^4.8"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5.8"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
             "Textualization\\SemanticSearch\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Textualization\\SemanticSearch\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -23,7 +31,11 @@
         ],
         "fetch": [
             "@php scripts/fetch.php"
-        ]
+        ],
+        "embed": [
+            "@php scripts/embed.php"
+        ],
+        "test": "vendor/bin/phpunit -d memory_limit=-1 tests"
     },
     "authors": [
         {
