@@ -32,4 +32,18 @@ class Document {
         $this->chunk_num = $arr["chunk_num"] ?? 0;
     }
 
+    public function __to_json() : array
+    {
+        return [
+            "title" => $this->title,
+            "url" => $this->url,
+            "text" => $this->text,
+            "offset_start" => $this->offset_start,
+            "offset_end" => $this->offset_end,
+            "section" => $this->section,
+            "license" => $this->license,
+            "chunk_num" => $this->chunk_num
+        ];
+    }
+
 }

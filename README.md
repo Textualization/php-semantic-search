@@ -1,6 +1,8 @@
 # PHP Semantic Search Classes
 
-This classes contain interfaces for semantic search and implementations for them using [Ropherta](https://packagist.org/packages/textualization/ropherta) as embedder and [SQLite3 Vector Search](https://github.com/asg017/sqlite-vss/) as vector database. A keyword search using SQLite3 FTS4 and BM25 is also provided.
+This classes contain interfaces for semantic search and implementations for them using [Ropherta](https://packagist.org/packages/textualization/ropherta) as embedder and [SQLite3 Vector Search](https://github.com/asg017/sqlite-vss/) as vector database. A keyword search using [SQLite3 FTS4](https://www.sqlite.org/fts3.html) and [BM25](https://en.wikipedia.org/wiki/Okapi_BM25) is also provided.
+
+To populate the vector database, the `Ingester` class contains a recursive chunker similar to the one available in [LangChain](https://python.langchain.com/docs/modules/data_connection/document_transformers/text_splitters/recursive_text_splitter) but with some speed ups plus the ability to refer back to offsets in the source document.
 
 More advanced uses include using vector search as reranker and using [HyDE](https://arxiv.org/abs/2212.10496) to obtain symmetric embeddings.
 
@@ -310,6 +312,25 @@ To use a reranked index, create a vector and keyword indexes separately.
 
 The vector indexing takes about a day and consumes significant amount of RAM at the moment.
 
+## Chunking files
+
+The recursive chunker can be used standalone:
+
+```bash
+$ composer run-script chunk ropherta null 1024 tests/sornd1000.jsonl output.jsonl
+```
+
+The output `JSONL` documents have keys:
+
+* Title (`title`)
+* Text (`text`)
+* URL (`url`)
+* Chunk Number (`chunk_num`)
+* Offset Start (`offset_start`)
+* Offset End (`offset_end`)
+* License (`license`)
+
+Other tokenizers are possible, see the code in the `scripts` folder. Using the string `null` (n-u-l-l) sets the size to characters instead of tokens.
 
 
 ## Sponsors

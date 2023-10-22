@@ -231,7 +231,3 @@ class Ingester {
         $this->_add($row, $tokenizer, $max_size);
     }
 }
-
-
-
-

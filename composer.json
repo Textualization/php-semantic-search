@@ -35,6 +35,9 @@
         "embed": [
             "@php scripts/embed.php"
         ],
+        "chunk": [
+            "@php scripts/chunk.php"
+        ],
         "test": "vendor/bin/phpunit -d memory_limit=-1 tests"
     },
     "authors": [

@@ -10,10 +10,11 @@ test.php
 *.db
 *.bak
 *.so
-*.jsonl
 *.bz2
 *.log
 php.ini
 bulk
 sources
 php-semantic-search-demo
+sophp.jsonl
+output.jsonl
