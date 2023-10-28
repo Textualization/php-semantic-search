@@ -6,7 +6,20 @@ class RophertaEmbedder extends \Textualization\Ropherta\RophertaModel implements
 
     public function encode(array|string $text) : array
     {
-        return $this->embeddings($text);
+        $full_output = $this->_encode($text);
+
+        $layer = $full_output["output_1"];
+        $pool = $layer[0][0];
+        $len = count($pool);
+        $wlen = count($layer[0]);
+        for($i=1; $i<$wlen; $i++)
+            for($j=0; $j<$len; $j++)
+                $pool[$j] += $layer[0][$i][$j];
+        for($j=0; $j<$len; $j++)
+            $pool[$j] /= $wlen;
+        return $pool;
+        //return $full_output["output_1"][0][0];
+        //return $full_output["output_2"][0];
     }
     
     public function size() : int

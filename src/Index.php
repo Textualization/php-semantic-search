@@ -18,5 +18,6 @@ interface Index {
     public function max_docs() : int;
     public function set_max_docs(int $max_docs) : void;
 
+    public function close() : void;
 }
 

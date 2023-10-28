@@ -186,4 +186,8 @@ SQL
         return $this->embedder->input_size();
     }
 
+    public function close() : void
+    {
+        $this->db->close();
+    }
 }

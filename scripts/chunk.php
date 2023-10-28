@@ -60,6 +60,7 @@ $index = new class($size, $tokenizer, $handle) implements Index {
     public function fetch_document(string $url, int $chunk_num) : ?Document { return null; }
     public function max_docs() : int { return 10; }
     public function set_max_docs(int $max_docs) : void {}
+    public function close() : void {}
 };
 
 Ingester::ingest($index, $ingester_desc, $input);

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7440a7586aadd6af76be7dd9699316ce",
+    "content-hash": "20b1c45f42ebca08042af8d02c4d001d",
     "packages": [
         {
             "name": "ankane/onnxruntime",

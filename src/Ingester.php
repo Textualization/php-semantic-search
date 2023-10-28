@@ -8,7 +8,9 @@ class Ingester {
 
     protected static $END_CHARS = [ '.', ':', '?', '!', ';' ];
 
-    public static function ingest(array|string|Index|null $indexdesc, array|string|null $ingesterdesc, string $jsonl) : void
+    public static bool $verbose = true;
+
+    public static function ingest(array|string|Index|null $indexdesc, array|string|null $ingesterdesc, string $jsonl) : Index
     {
         $index    = IndexFactory::make($indexdesc);
         $ingester = new Ingester($index, $ingesterdesc);
@@ -29,11 +31,12 @@ class Ingester {
                 $ingester->_add( $row, $tokenizer, $max_size );
             }
             $count++;
-            if($count % 1000 == 0){
+            if($count % 1000 == 0 and Ingester::$verbose){
                 echo "$count documents indexed...\n";
             }
         }
         fclose($handle);
+        return $index;
     }
 
     protected Index $index;

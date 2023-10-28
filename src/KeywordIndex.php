@@ -13,6 +13,8 @@ class KeywordIndex implements Index {
     protected array $stop_words;  // <string>
 
     protected int $max_docs;
+
+    protected string $explanation;
     
     public function __construct(array|string|null $desc = null)
     {
@@ -106,7 +108,7 @@ SQL
 
     public function search_with_query(string $search_query) : array // <SearchResult>
     {
-        echo "Search query: $search_query\n";
+        $this->explanation = "Search query: $search_query\n";
         $doc = $this->text_table;
         $fts = "fts_$doc";
         $stmt = $this->db->prepare(<<<SQL
@@ -237,5 +239,15 @@ SQL
     public function document_size() : int
     {
         return -1;
+    }
+    
+    public function close() : void
+    {
+        $this->db->close();
+    }
+
+    public function explanation() : string
+    {
+        return $this->explanation;
     }
 }

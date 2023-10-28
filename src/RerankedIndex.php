@@ -80,5 +80,11 @@ class RerankedIndex implements Index {
         return $main_ds < 0 ? ($reranker_ds < 0 ? -1 : $reranker_ds) :
             ( $reranker_ds < 0 ? $main_ds : min($main_ds, $reranker_ds));
     }
+    
+    public function close() : void
+    {
+        $this->main->close();
+        $this->reranker->close();
+    }
 }
 

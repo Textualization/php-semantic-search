@@ -13,7 +13,7 @@ class IngesterTest extends TestCase {
 
     public function test_splitter() : void
     {
-        $tmpfname = tempnam(sys_get_temp_dir(), "phptest");
+        $tmpfname = tempnam(sys_get_temp_dir(), "phptest_ingester");
         file_put_contents($tmpfname, <<<JSONL
 { "url":"https://textualization.com/ex1.txt","title":"example title","text":"1st chunk, dbl line\\n\\n2n chunk\\n\\njoin here\\n\\nThis one\\nneeds to\\nbe subchunked.\\n\\nHere is\\nA very long subchunk that will need to be split on spaces\\n\\nThisonehasnospacesocharacterswillhavetodo\\n\\nBack to\\nnormal\\n\\n", "section":"test", "license":"MIT" }
 JSONL
@@ -37,6 +37,7 @@ JSONL
             public function tokenizer() : ?Tokenizer { return null; }
             public function max_docs() : int { return 10; }
             public function set_max_docs(int $max_docs) : void {}
+            public function close() : void {}
         };
         Ingester::ingest($index, null, $tmpfname);
         //print_r($index->docs);

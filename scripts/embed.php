@@ -4,6 +4,6 @@ require "vendor/autoload.php";
 
 global $argc,$argv;
 
-$model = new \Textualization\Ropherta\RophertaModel();
+$model = new \Textualization\SemanticSearch\RophertaEmbedder();
 
-print_r($model->embeddings($argv[1]));
+print_r($model->encode($argv[1]));
