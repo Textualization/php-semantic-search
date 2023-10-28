@@ -37,20 +37,33 @@ class OpenAIService implements CompletionService {
         $messages[] = [
             "role" => "user",
             "content" => $prompt
-        ];        
-        $complete = $this->open_ai->chat([
-            'model' => $this->model,
-            'messages' => $messages,
-            'temperature' => $this->temperature,
-            'max_tokens' => $tokens,
-            'frequency_penalty' => 0,
-            'presence_penalty' => 0,
-        ]);
+        ];
 
-        //echo "\n\n$complete\n\n";
+        while(true) {
+            $complete = $this->open_ai->chat([
+                'model' => $this->model,
+                'messages' => $messages,
+                'temperature' => $this->temperature,
+                'max_tokens' => $tokens,
+                'frequency_penalty' => 0,
+                'presence_penalty' => 0,
+            ]);
+            
+            //echo "\n\n$complete\n\n";
         
-        $complete = json_decode($complete, true);
+            $complete = json_decode($complete, true);
+            if(isset($complete['choices']))
+                break;
+            if(isset($complete['error'])){
+                if(isset($complete['error']['code'])){
+                    if($complete['error']['code'] == 502) { // Bad Gateway
+                        sleep(10); // wait 10s, retry
+                        continue;
+                    }
+                }
+            }
+            throw new \Exception(json_encode($complete));
+        }
         return $complete['choices'][0]['message']['content'];
     }
-
 }

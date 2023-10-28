@@ -15,19 +15,23 @@ class VectorIndex implements Index {
     protected int $max_docs;
 
     protected Embedder $embedder;
+
+    protected bool $verbose;
     
     public function __construct(array|string|null $desc = null)
     {
-        $desc = get_json($desc);
+        $desc = get_json($desc);        
         $this->db = new \SQLite3($desc["location"] ?? "vector.db");
         $this->db->loadExtension("vector0.so");
         $this->db->loadExtension("vss0.so");
 
         // create the embedder
         $this->embedder = EmbedderFactory::make($desc["embedder"] ?? null);
+        
         $this->vector_table = $desc["table"] ?? "vector_documents";
         $this->vector_size = $this->embedder->size();
         $this->max_docs = $desc["max_docs"] ?? 50;
+        $this->verbose = $desc["verbose"] ?? false;
 
         // check if DB has the index has the table, otherwise create it
         $stmt = $this->db->prepare("SELECT name FROM sqlite_master WHERE type='table' AND name=:name");

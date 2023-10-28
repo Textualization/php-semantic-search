@@ -7,8 +7,8 @@ class VectorHydeIndex extends VectorIndex {
     protected CompletionService $completion;
 
     protected int $target_size;
-    
-    public function __construct(array|string $desc = null)
+
+    public function __construct(array|string|null $desc = null)
     {
         if(is_null($desc)){
             $desc=[];
@@ -28,7 +28,7 @@ class VectorHydeIndex extends VectorIndex {
     public function search(string $query) : array //<SearchResult>
     {
         $hyde_query = $this->completion->complete($query, $this->target_size);
-        echo "Hdydrated query: $hyde_query\n";
+        if($this->verbose) echo "Hdydrated query: $hyde_query\n";
         return parent::search($hyde_query);
     }
 }

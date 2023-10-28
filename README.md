@@ -332,6 +332,17 @@ The output `JSONL` documents have keys:
 
 Other tokenizers are possible, see the code in the `scripts` folder. Using the string `null` (n-u-l-l) sets the size to characters instead of tokens.
 
+## HyDE-rating files
+
+To expand answers using a completion service (like Open AI ChatGPT) use:
+
+```bash
+$ composer run-script hydrate /path/to/open-ai-key 1024 tests/sornd1000.jsonl output.jsonl
+```
+
+It populates the field `completion` from the `title` in the `JSON` object.
+
+
 
 ## Sponsors
 

@@ -39,6 +39,10 @@
             "Composer\\Config::disableProcessTimeout",
             "@php scripts/chunk.php"
         ],
+        "hydrate": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php scripts/hydrate.php"
+        ],
         "test": [
             "Composer\\Config::disableProcessTimeout",
             "vendor/bin/phpunit -d memory_limit=-1 -d max_execution_time=6000 tests"
