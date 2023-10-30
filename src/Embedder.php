@@ -8,8 +8,8 @@ interface Embedder {
     
     public function size() : int; // embedding size
 
-    public function input_size() : int; // input size, in tokens
+    public function input_size() : int; // input size, in tokens, 0 or less for infinite
 
-    public function tokenizer() : Tokenizer;
+    public function tokenizer() : ?Tokenizer; // some embedders have no tokenizer
     
 }

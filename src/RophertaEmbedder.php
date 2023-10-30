@@ -4,6 +4,13 @@ namespace Textualization\SemanticSearch;
 
 class RophertaEmbedder extends \Textualization\Ropherta\RophertaModel implements Embedder {
 
+    public function __construct(array $params)
+    {
+        $model = $params["model"] ?? null;
+        $input_size = $params["input_size"] ?? 512;
+        parent::__construct($model, $input_size);
+    }
+
     public function encode(array|string $text) : array
     {
         $full_output = $this->_encode($text);
