@@ -332,6 +332,12 @@ The output `JSONL` documents have keys:
 
 Other tokenizers are possible, see the code in the `scripts` folder. Using the string `null` (n-u-l-l) sets the size to characters instead of tokens.
 
+## Computing embeddings with custom ONNX model
+
+```bash
+$ composer run-script embed /path/to/model.onnx "actual text to compute embeddings"
+```
+
 ## HyDE-rating files
 
 To expand answers using a completion service (like Open AI ChatGPT) use:

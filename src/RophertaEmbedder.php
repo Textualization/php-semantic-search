@@ -15,7 +15,7 @@ class RophertaEmbedder extends \Textualization\Ropherta\RophertaModel implements
     {
         $full_output = $this->_encode($text);
 
-        $layer = $full_output["output_1"];
+        $layer = $full_output["output_1"] ?? $full_output["last_hidden_state"];
         $pool = $layer[0][0];
         $len = count($pool);
         $wlen = count($layer[0]);
