@@ -21,6 +21,8 @@ The text ought to be plain text UTF-8 encoded (per JSON spec). The system will s
 
 ## Vector Index depencencies
 
+You need [sqlite-vss](https://github.com/asg017/sqlite-vss) installed (both vector0 and vss0.so)
+
 ### php.ini
 
 Set 
