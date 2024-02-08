@@ -6,6 +6,7 @@ class RophertaEmbedder extends \Textualization\Ropherta\RophertaModel implements
 
     public function __construct(array $params)
     {
+        //NB: this loads a raw ropherta model, most probably not what you want, look into SentenceTransphormerEmbedder
         $model = $params["model"] ?? null;
         $input_size = $params["input_size"] ?? 512;
         parent::__construct($model, $input_size);
@@ -22,8 +23,18 @@ class RophertaEmbedder extends \Textualization\Ropherta\RophertaModel implements
         for($i=1; $i<$wlen; $i++)
             for($j=0; $j<$len; $j++)
                 $pool[$j] += $layer[0][$i][$j];
-        for($j=0; $j<$len; $j++)
+        $sum_of_sqrs = 0.0;
+        for($j=0; $j<$len; $j++) {
             $pool[$j] /= $wlen;
+            $sum_of_sqrs += $pool[$j]*$pool[$j];
+        }
+
+        // normalize
+        $norm = sqrt($sum_of_sqrs);
+        for($j=0; $j<$len; $j++) {
+            $pool[$j] /= $norm;
+        }
+
         return $pool;
         //return $full_output["output_1"][0][0];
         //return $full_output["output_2"][0];

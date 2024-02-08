@@ -46,10 +46,10 @@ Install the ONNX framework:
 composer exec -- php -r "require 'vendor/autoload.php'; OnnxRuntime\Vendor::check();"
 ```
 
-and download the RoBERTa ONNX model (this takes a while, the model is 477Mb in size):
+and download the Sentence RoBERTa ONNX model (this takes a while, the model is 362Mb in size):
 
 ```
-composer exec -- php -r "require 'vendor/autoload.php'; Textualization\Ropherta\Vendor::check();"
+composer exec -- php -r "require 'vendor/autoload.php'; Textualization\SentenceTransphormers\Vendor::check();"
 ```
 
 
@@ -126,7 +126,7 @@ Search query: compos OR produc OR time OR out OR on OR script OR execut
 
 ### Vector search
 
-Not as good as keyword but results are really different. Vector search using a symmetric embedder (like Ropherta) works better when searching similar documents not queries against documents. For such cases, HyDE (presented below) is better. Alternative, asymmetric embedders (like InstructOR) can be ported to PHP through ONNX.
+Not as good as keyword but results are really different. Vector search using a symmetric embedder (like Sentence RoBERTa) works better when searching similar documents not queries against documents. For such cases, HyDE (presented below) is better. Alternative, asymmetric embedders (like InstructOR) can be ported to PHP through ONNX.
 
 ```bash
 $ composer run-script query vector "How to stop composer giving a time-out on a script execution" 

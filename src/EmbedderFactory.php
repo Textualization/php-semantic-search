@@ -14,7 +14,7 @@ class EmbedderFactory {
         }elseif(!is_array($desc)) {
             $desc = json_decode($desc);
         }
-        $embedder_class = $desc['class'] ?? "\\Textualization\\SemanticSearch\\RophertaEmbedder";
+        $embedder_class = $desc['class'] ?? "\\Textualization\\SemanticSearch\\SentenceTransphormerEmbedder";
 
         return new $embedder_class($desc);
     }

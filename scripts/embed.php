@@ -12,6 +12,7 @@ if($argc == 3){
 }
 
 
-$model = new \Textualization\SemanticSearch\RophertaEmbedder( $params );
+$model = new \Textualization\SemanticSearch\SentenceTransphormerEmbedder( $params );
 
 echo json_encode($model->encode($text))."\n";
+# $embedding = $model->encode($text); echo array_sum($embedding)."\n";

@@ -93,7 +93,6 @@ r.rowid = $table.rowid
 SQL
         );
 
-        
         if($stmt === false) throw new \Exception($this->db->lastErrorMsg());
         $stmt->bindValue(':limit', $this->max_docs, SQLITE3_INTEGER);
         $stmt->bindValue(':json', json_encode($query_vector));
@@ -138,7 +137,7 @@ SQL
         $vss = "vss_$table";
         $stmt = $this->db->prepare(<<<SQL
 insert into $vss (`rowid`, `embeddings`) 
-values (:document_id, :embeddings);
+values (:document_id, json(:embeddings));
 SQL
         );
         if($stmt === false) throw new \Exception($this->db->lastErrorMsg());

@@ -35,8 +35,7 @@ class RerankedIndexTest extends IndexTestBase {
             "main" => $keyword_index,
             "reranker" => $vector_index
         ]);
-        # 0.08632250175091587
-        $this->_test_mrr($index, $title_url, 0.08, 0.09);
+        $this->_test_mrr($index, $title_url, 0.91, 0.92); # 0.9194670026729231
 
         $index->close();
         unlink($tmpfname . "_vector");

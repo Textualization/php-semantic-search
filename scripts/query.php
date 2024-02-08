@@ -35,6 +35,9 @@ $results = $index->search($query);
 
 $idx = 0;
 foreach($results as $result) {
+    echo "============================================================================================================\n";
     echo "$idx. $result\n";
+    echo $index->fetch_document($result->url, $result->chunk_num)->text."\n\n";
+
     $idx++;
 }

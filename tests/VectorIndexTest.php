@@ -29,7 +29,9 @@ class VectorIndexTest extends IndexTestBase {
         # 0.039330267174838146  (output_2 0)
         # 0.03822366623088808   (output_1 0 0)
         # 0.04232106750024146   (mean pooling)
-        $this->_test_mrr($index, $title_url, 0.04, 0.05);
+        # 0.00733371290099728   (mean pooling with padding)
+        # 0.9245769311666672    (distilroberta)
+        $this->_test_mrr($index, $title_url, 0.92, 0.93);
 
         $index->close();
         unlink($tmpfname);
