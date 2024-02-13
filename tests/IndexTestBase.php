@@ -32,7 +32,7 @@ abstract class IndexTestBase extends TestCase {
             }
             $mrr += 1.0/($rank+1);
         }
-        $mrr /= 1000.0;
+        $mrr /= 1.0*count($title_url);
         $this->assertGreaterThan($mrr_min, $mrr);
         $this->assertLessThan($mrr_max,    $mrr);
     }

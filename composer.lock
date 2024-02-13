@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f88e1d4722c6e415f7b326a2dd0fa0c",
+    "content-hash": "c201d4f94349c601398908f6765a023a",
     "packages": [
         {
             "name": "ankane/onnxruntime",
@@ -164,21 +164,21 @@
         },
         {
             "name": "textualization/ropherta",
-            "version": "v0.0.5",
+            "version": "v0.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Textualization/Ropherta.git",
-                "reference": "656178ee85d00717d4ad50996ade48d7d8eaad14"
+                "reference": "79c7a904f2510ff3c0d2d89fcb0faa41262ca3e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Textualization/Ropherta/zipball/656178ee85d00717d4ad50996ade48d7d8eaad14",
-                "reference": "656178ee85d00717d4ad50996ade48d7d8eaad14",
+                "url": "https://api.github.com/repos/Textualization/Ropherta/zipball/79c7a904f2510ff3c0d2d89fcb0faa41262ca3e4",
+                "reference": "79c7a904f2510ff3c0d2d89fcb0faa41262ca3e4",
                 "shasum": ""
             },
             "require": {
                 "ankane/onnxruntime": "v0.1.7",
-                "textualization/ropherta-tokenizer": "v0.0.2"
+                "textualization/ropherta-tokenizer": "v0.0.5"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5.8"
@@ -210,24 +210,25 @@
                     "type": "ko-fi"
                 }
             ],
-            "time": "2024-02-08T15:06:28+00:00"
+            "time": "2024-02-13T03:12:08+00:00"
         },
         {
             "name": "textualization/ropherta-tokenizer",
-            "version": "v0.0.2",
+            "version": "v0.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Textualization/RophertaTokenizer.git",
-                "reference": "06eb6254ec0276e90fc27a2220045660d05c9e16"
+                "reference": "190db5479b029460d8ce0174fb9a4e58878431fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Textualization/RophertaTokenizer/zipball/06eb6254ec0276e90fc27a2220045660d05c9e16",
-                "reference": "06eb6254ec0276e90fc27a2220045660d05c9e16",
+                "url": "https://api.github.com/repos/Textualization/RophertaTokenizer/zipball/190db5479b029460d8ce0174fb9a4e58878431fa",
+                "reference": "190db5479b029460d8ce0174fb9a4e58878431fa",
                 "shasum": ""
             },
             "require": {
-                "gioni06/gpt3-tokenizer": "v1.2.0"
+                "gioni06/gpt3-tokenizer": "v1.2.0",
+                "textualization/sentencepiece": "v0.0.2"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5.8"
@@ -235,7 +236,8 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Textualization\\Ropherta\\": "src/"
+                    "Textualization\\Ropherta\\": "src/",
+                    "Textualization\\Ropherta\\Tokenizer\\": "src/Tokenizer/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -250,28 +252,34 @@
             ],
             "description": "GPT3Tokenizer (BPE) with Roberta-base vocabulary.",
             "support": {
-                "issues": "https://github.com/Textualization/RophertaTokenizer/issues",
-                "source": "https://github.com/Textualization/RophertaTokenizer/tree/v0.0.2"
+                "issues": "https://github.com/textualization/RophertaTokenizer/issues",
+                "source": "https://github.com/textualization/RophertaTokenizer"
             },
-            "time": "2023-08-08T13:36:36+00:00"
+            "funding": [
+                {
+                    "url": "https://ko-fi.com/textualization",
+                    "type": "ko-fi"
+                }
+            ],
+            "time": "2024-02-13T03:10:57+00:00"
         },
         {
             "name": "textualization/sentence-transphormers",
-            "version": "v0.0.4",
+            "version": "v0.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Textualization/sentence-transphormers.git",
-                "reference": "6c362f106bf3d3f4f9262edc4b6c24cfcc2562b4"
+                "reference": "93bcbaf177d8ec119bffee1cb9a78fe0ad43a2b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Textualization/sentence-transphormers/zipball/6c362f106bf3d3f4f9262edc4b6c24cfcc2562b4",
-                "reference": "6c362f106bf3d3f4f9262edc4b6c24cfcc2562b4",
+                "url": "https://api.github.com/repos/Textualization/sentence-transphormers/zipball/93bcbaf177d8ec119bffee1cb9a78fe0ad43a2b2",
+                "reference": "93bcbaf177d8ec119bffee1cb9a78fe0ad43a2b2",
                 "shasum": ""
             },
             "require": {
                 "ankane/onnxruntime": "v0.1.7",
-                "textualization/ropherta": "v0.0.5"
+                "textualization/ropherta": "v0.0.8"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5.8"
@@ -303,7 +311,53 @@
                     "type": "ko-fi"
                 }
             ],
-            "time": "2024-02-08T15:09:36+00:00"
+            "time": "2024-02-13T03:15:49+00:00"
+        },
+        {
+            "name": "textualization/sentencepiece",
+            "version": "v0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Textualization/php-sentencepiece.git",
+                "reference": "81f7fe3cf384c8a2c7c8f3d6f6c761741dfc0a8f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Textualization/php-sentencepiece/zipball/81f7fe3cf384c8a2c7c8f3d6f6c761741dfc0a8f",
+                "reference": "81f7fe3cf384c8a2c7c8f3d6f6c761741dfc0a8f",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Textualization\\SentencePiece\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pablo Duboue",
+                    "email": "pablo.duboue@gmail.com"
+                }
+            ],
+            "description": "Google SentencePiece bindings using FFI and a C adapter.",
+            "support": {
+                "issues": "https://github.com/textualization/php-sentencepiece/issues",
+                "source": "https://github.com/textualization/php-sentencepiece"
+            },
+            "funding": [
+                {
+                    "url": "https://ko-fi.com/textualization",
+                    "type": "ko-fi"
+                }
+            ],
+            "time": "2024-02-12T15:07:56+00:00"
         }
     ],
     "packages-dev": [

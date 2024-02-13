@@ -46,11 +46,33 @@ Install the ONNX framework:
 composer exec -- php -r "require 'vendor/autoload.php'; OnnxRuntime\Vendor::check();"
 ```
 
-and download the Sentence RoBERTa ONNX model (this takes a while, the model is 362Mb in size):
+If you want do use the multilingual model, do not download this model and follow the instructions in the next section.  For the English model, download the Sentence RoBERTa ONNX model (this takes a while, the model is 362Mb in size):
 
 ```
 composer exec -- php -r "require 'vendor/autoload.php'; Textualization\SentenceTransphormers\Vendor::check();"
 ```
+
+### Multilingual model
+
+Download the SentencePiece library:
+
+```
+composer exec -- php -r "require 'vendor/autoload.php'; Textualization\SentencePiece\Vendor::check();"
+```
+
+Download the XLM Tokenizer SentencePiece BPE model:
+
+```
+composer exec -- php -r "require 'vendor/autoload.php'; Textualization\Ropherta\Tokenizer\Vendor::check();"
+```
+
+Download the Multilingual-E5-small model (471Mb in size):
+
+```
+composer exec -- php -r "require 'vendor/autoload.php'; Textualization\SentenceTransphormers\Vendor::check(true);"
+```
+
+Please note: if you had downloaded the English model you'll need to delete it first. Currently only one model is possible, this limitation will be lifted in future versions.
 
 
 

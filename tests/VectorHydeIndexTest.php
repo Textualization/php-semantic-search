@@ -37,6 +37,7 @@ class VectorHydeIndexTest extends IndexTestBase {
             $title_url[$row['title']] = $row['url'];
         }
         $db->close();
+        # xlm 0.6894799684118035
         $this->_test_mrr($index, $title_url, 0.84, 0.85); # 0.8480127736086553
 
         $index->close();

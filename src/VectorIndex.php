@@ -67,9 +67,15 @@ SQL
 
 
     public function search(string $query) : array //<SearchResult>
-    {
-        $query_vector = $this->embedder->encode($query);
+    {        
+        $query_vector = $this->embedder->is_asymmetric() ?
+                      $this->embedder->encode_query($query) :
+                      $this->embedder->encode($query);
         
+        if(count($query_vector) == 0) {
+            throw new \Exception("No vector for '$query'");
+        }
+
         $table = $this->vector_table;
         /*
         $stmt = $this->db->prepare(<<<SQL
@@ -111,6 +117,10 @@ SQL
     public function add(Document $doc) : void
     {
         $text_vector = $this->embedder->encode($doc->text);
+        
+        if(count($text_vector) == 0) {
+            throw new \Exception("No vector for '" . json_encode($doc->__to_json()) . "'");
+        }
 
         #echo "\n\n---------------\n";
         #print_r($document->text);

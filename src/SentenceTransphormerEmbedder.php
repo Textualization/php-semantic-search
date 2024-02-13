@@ -30,4 +30,14 @@ class SentenceTransphormerEmbedder extends \Textualization\SentenceTransphormers
     {
         return $this->input_size;
     }
+
+    public function encode_query(array|string $text) : array
+    {
+        return $this->encode($text);
+    }
+
+    public function is_asymmetric() : bool
+    {
+        return false;
+    }    
 }

@@ -24,4 +24,25 @@ class RophertaTokenizer extends \Textualization\Ropherta\Tokenizer implements To
             }
         };
     }
+    
+    public static function wrapXLM(\Textualization\Ropherta\XLMTokenizer $wrapped) : Tokenizer
+    {
+        return new class($wrapped) implements Tokenizer {
+            private \Textualization\Ropherta\XLMTokenizer $wrapped;
+
+            public function __construct($wrapped)
+            {
+                $this->wrapped = $wrapped;
+            }
+            public function encode(string $text): array
+            {
+                return $this->wrapped->encode($text);
+            }
+    
+            public function count(string $text): int
+            {
+                return $this->wrapped->count($text);
+            }
+        };
+    }
 }
