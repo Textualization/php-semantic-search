@@ -3,7 +3,7 @@
     "description": "Semantic search using Ropherta embeddings and SQLite3 Vector extension.",
     "type": "library",
     "require": {
-        "textualization/sentence-transphormers": "^0.0.6",
+        "textualization/sentence-transphormers": "^0.0.7",
         "orhanerday/open-ai": "^4.8"
     },
     "require-dev": {
