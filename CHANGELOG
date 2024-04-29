@@ -1,3 +1,11 @@
+semantic-search (0.0.5)
+
+	* New sentence-transphormers version
+	* Ingester interface improvements
+
+-- Pablo Duboue, 2024/04/29
+
+
 semantic-search (0.0.4)
 
 	* New sentence-transphormers version

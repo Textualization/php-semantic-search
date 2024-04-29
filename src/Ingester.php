@@ -10,32 +10,35 @@ class Ingester {
 
     public static bool $verbose = true;
 
-    public static function ingest(array|string|Index|null $indexdesc, array|string|null $ingesterdesc, string $jsonl) : Index
+    public static function ingest(array|string|Index|null $indexdesc, array|string|null $ingesterdesc, array|string $jsonl) : Index
     {
         $index    = IndexFactory::make($indexdesc);
         $ingester = new Ingester($index, $ingesterdesc);
-
-        $handle = fopen($jsonl, "r");
-        if (! $handle) {
-            throw new \Exception("Cannot open JSONL file: $jsonl\n");
-        }
-        
         $tokenizer = $index->tokenizer();
         $max_size = $index->document_size();
-        $count = 0;
-        while (($line = fgets($handle)) !== false) {
-            $row = json_decode($line, true);
-            if ($row === null) {
-                echo "Cannot parse JSON at line $count: '$line'\n";
-            }else{
-                $ingester->_add( $row, $tokenizer, $max_size );
+
+        if (is_array($jsonl)) {
+            $ingester->_add( $jsonl, $tokenizer, $max_size );
+        } else {
+            $handle = fopen($jsonl, "r");
+            if (! $handle) {
+                throw new \Exception("Cannot open JSONL file: $jsonl\n");
             }
-            $count++;
-            if($count % 1000 == 0 and Ingester::$verbose){
-                echo "$count documents indexed...\n";
+            $count = 0;
+            while (($line = fgets($handle)) !== false) {
+                $row = json_decode($line, true);
+                if ($row === null) {
+                    echo "Cannot parse JSON at line $count: '$line'\n";
+                }else{
+                    $ingester->_add( $row, $tokenizer, $max_size );
+                }
+                $count++;
+                if($count % 1000 == 0 and Ingester::$verbose){
+                    echo "$count documents indexed...\n";
+                }
             }
+            fclose($handle);
         }
-        fclose($handle);
         return $index;
     }
 
