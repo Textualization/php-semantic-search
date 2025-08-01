@@ -3,7 +3,7 @@
     "description": "Semantic search using Ropherta embeddings and SQLite3 Vector extension.",
     "type": "library",
     "require": {
-        "textualization/sentence-transphormers": "^0.0.9",
+        "textualization/sentence-transphormers": "^0.0.10",
         "orhanerday/open-ai": "^4.8"
     },
     "require-dev": {
@@ -53,5 +53,8 @@
             "name": "Pablo Duboue",
             "email": "pablo.duboue@gmail.com"
         }
-    ]
+    ],
+    "config": {
+        "process-timeout": 2400
+    }
 }
